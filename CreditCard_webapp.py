@@ -13,7 +13,7 @@ def predict(LIMIT_BAL,EDUCATION,MARRIAGE,AGE,PAY_1,BILL_AMT1,BILL_AMT2,BILL_AMT3
     PAY_1 = PAY_1_dict[PAY_1]
     input_features = np.array([LIMIT_BAL,EDUCATION,MARRIAGE,AGE,PAY_1,BILL_AMT1,BILL_AMT2,BILL_AMT3,BILL_AMT4,BILL_AMT5,BILL_AMT6,PAY_AMT1,PAY_AMT2,PAY_AMT3,PAY_AMT4,PAY_AMT5,PAY_AMT6]).astype(np.float64).reshape(1,-1)
     prediction = model.predict_proba(input_features)
-    pred='{0:.{1}f}'.format(prediction[0][0],4)
+    pred='{0:.{1}f}'.format(prediction[0][0],6)
     return float(pred)
 
 def main():
@@ -44,7 +44,7 @@ def main():
 
     if st.button("Predict"):
         output=predict(LIMIT_BAL,EDUCATION,MARRIAGE,AGE,PAY_1,BILL_AMT1,BILL_AMT2,BILL_AMT3,BILL_AMT4,BILL_AMT5,BILL_AMT6,PAY_AMT1,PAY_AMT2,PAY_AMT3,PAY_AMT4,PAY_AMT5,PAY_AMT6)
-        st.success('The probability of not making credit card default is {}%'.format(output * 100))
+        st.success('The probability of not making credit card default is {0.{1}f}%'.format(output * 100,4))
 
 
 if __name__=='__main__':
