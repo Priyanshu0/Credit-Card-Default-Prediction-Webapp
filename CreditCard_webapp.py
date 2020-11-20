@@ -2,7 +2,7 @@ import streamlit as st
 import pickle
 import numpy as np 
 
-model = pickle.load(open('/Users/priyanshutuli/Desktop/model.pkl','rb'))
+model = pickle.load(open('model.pkl','rb'))
 education_dict = {'graduate school':1,'university':2,'high school':3,'others':4}
 marriage_dict = {'married':1,'single':2,'others':3}
 PAY_1_dict = {'account started that month with a zero balance, and never used any credit':-2,'account had a balance that was paid in full':-1,'atleast the minimum payment was made, but the entire balance was not paid':0, 'payment delay for 1 month':1, 'payment delay for 2 months':2,'payment delay for 3 months':3, 'payment delay for 4 months':4,'payment delay for 5 months':5,'payment delay for 6 months':6,'payment delay for 7 months':7,'payment delay for 8 months':8}
